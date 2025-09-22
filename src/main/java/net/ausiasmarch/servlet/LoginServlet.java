@@ -17,7 +17,7 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         HashMap<String, String> users = (HashMap<String, String>) getServletContext().getAttribute("users");
-       // String s = users.get(username);
+       
         if (users != null && password.equals(users.get(username))) {
             request.getSession().setAttribute("username", username);
             response.sendRedirect("welcome.jsp");
