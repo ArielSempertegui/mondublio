@@ -14,7 +14,7 @@
                 <div class="card shadow">
                     <div class="card-body text-center">
                         <h2 class="card-title mb-4">Resultado del registro</h2>
-                        <% String id = (String) request.getAttribute("id");
+                        <% Integer id = (Integer) request.getAttribute("id");
                            String error = (String) request.getAttribute("error");
                            if (id != null) { %>
                             <div class="alert alert-success">Registro insertado correctamente. Nuevo ID: <strong><%= id %></strong></div>
