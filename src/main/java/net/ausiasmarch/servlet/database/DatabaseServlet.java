@@ -3,6 +3,7 @@ package net.ausiasmarch.servlet.database;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -18,9 +19,9 @@ public class DatabaseServlet extends HttpServlet{
             throws ServletException, IOException {
 
         // recogida de parametros
-        String nombre = request.getParameter("username") != null ? request.getParameter("username") : "invitado";
-        String contrasenya = request.getParameter("password") != null ? request.getParameter("password") : "invitado";
-        String email = request.getParameter("email") != null ? request.getParameter("email") : "";
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String email = request.getParameter("email");
 
         // carga del driver
         // try {
@@ -29,18 +30,27 @@ public class DatabaseServlet extends HttpServlet{
         //     e.printStackTrace();
         // }
 
-        // String id = null;
-        // String error = null;
+        int id = 0;
+        String error = null;
         // Connection oConnection = null;
         // PreparedStatement oPreparedStatement = null;
         // ResultSet oResultSet = null;
-        try {
-            Connection con = DatabaseService.getConnection();
-            PreparedStatement pstm = con.prepareStatement("insert into usuario(nombre, contrasenya, email) values(?,?,?)");
-            pstm.setString(1, nombre);
-            pstm.setString(2, contrasenya);
-            pstm.setString(3, email);
-            pstm.executeUpdate();
+        try (
+            Connection con = ConnectionSingleton.getConnection();
+            PreparedStatement pstmt1 = con.prepareStatement("insert into usuario(username, password, email) values(?,?,?)");
+            PreparedStatement pstmt2 = con.prepareStatement("select id from usuario where email = ?")
+        ) {
+            pstmt1.setString(1, username);
+            pstmt1.setString(2, password);
+            pstmt1.setString(3, email);
+            pstmt1.executeUpdate();
+
+            pstmt2.setString(1, email);
+            try(ResultSet rs = pstmt2.executeQuery()){
+                while (rs.next()) { 
+                    id = rs.getInt("id");
+                }
+            }
             // ...cambio: considerar éxito si rowsAffected > 0 aunque no se devuelva
             // generated key...
             // if (rowsAffected > 0) {
@@ -55,8 +65,8 @@ public class DatabaseServlet extends HttpServlet{
             // }
 
         } catch (SQLException ex) {
-            //error = ex.getMessage();
-        } finally {
+            error = "No se pudo insertar el registro";
+        } //finally {
             
             // try {
             //     if (oResultSet != null) {
@@ -80,15 +90,15 @@ public class DatabaseServlet extends HttpServlet{
             //     ex.printStackTrace();
             // }
 
-        }
+        //}
 
-        // try {
-        //     request.setAttribute("id", id);
-        //     request.setAttribute("error", error);
-        //     request.getRequestDispatcher("registro_resultado.jsp").forward(request, response);
-        // } catch (ServletException | IOException e) {
-        //     e.printStackTrace();
-        // }
+        if (id != 0) {
+            request.setAttribute("id", id);
+        } else {
+            request.setAttribute("error", error);
+        }
+        
+        request.getRequestDispatcher("registro_resultado.jsp").forward(request, response);
 
     }
 }
