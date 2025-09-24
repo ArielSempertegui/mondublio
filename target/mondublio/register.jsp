@@ -36,7 +36,7 @@
                                     <div class="alert alert-danger mt-3 text-center" role="alert">
                                         Usuario ya registrado.
                                     </div>
-                            <% } else if (error.equals("2")) {%>
+                            <% } else if(error.equals("2")) {%>
                                     <div class="alert alert-danger mt-3 text-center" role="alert">
                                         Las contraseñas no coinciden.
                                     </div>

@@ -2,6 +2,7 @@ package net.ausiasmarch.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList; // import arraylist
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,7 +26,22 @@ public class Conexion extends HttpServlet {
         String nombre = "Rafa";
         request.setAttribute("nombre", nombre);
         //redirigir a la jsp
-        request.getRequestDispatcher("conexion.jsp").forward(request, response);
-        //response.sendRedirect("conexion.jsp");
+        request.getRequestDispatcher("conexion.jsp").forward(request, response); // le pasamos el request y el response, porque sino no se acordará (nivel scope request)
+        //response.sendRedirect("conexion.jsp");    a menos que creemos una session (nivel scope session) para que se acuerde y ya no hace falta pasarle el request, responde
+        /*
+         * Diferencias:
+         * Nivel Scope Request
+         * request.getParameter("") --> Me devuelve un String siempre, sirve para pillar las peticiones que le hemos enviado 
+         * request.setAttribute("", )
+         * request.getAttribute("") --> Me devuelve un objeto que hay que castearlo al tipo envolvente del que proviente ej: int --> castear a Integer o string --> castear a String
+         *                              El getAttribute() es por que le hemos puesto un setAttribute() antes
+         * Nivel Scope Session
+         * request.getSession().setAttribute("", )
+         * request.getSession().getAttribute("") --> Igual
+         * 
+         * Nivel Scope Application
+         * getServletContext().setAttribute("", )
+         * getServletContext().getAttribute("") --> Igual
+        */
     }
 }

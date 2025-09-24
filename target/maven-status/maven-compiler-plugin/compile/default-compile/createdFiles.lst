@@ -1,0 +1,9 @@
+net\ausiasmarch\servlet\LoginServlet.class
+net\ausiasmarch\servlet\Holamundo.class
+net\ausiasmarch\servlet\Aleatorio.class
+net\ausiasmarch\servlet\LogoutServlet.class
+net\ausiasmarch\servlet\database\DatabaseServlet.class
+net\ausiasmarch\servlet\RegisterServlet.class
+net\ausiasmarch\servlet\Conexion.class
+net\ausiasmarch\servlet\database\ConnectionSingleton.class
+net\ausiasmarch\servlet\Session.class

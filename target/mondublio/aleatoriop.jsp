@@ -4,8 +4,10 @@
     int max = 0;
     int min = 0;
     try{
+
         max = Integer.parseInt(request.getParameter("superior"));
         min = Integer.parseInt(request.getParameter("inferior"));
+
     }catch(Exception e){
         response.sendRedirect("formulario.html");
         return;

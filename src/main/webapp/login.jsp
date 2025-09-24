@@ -27,10 +27,12 @@
                                 <button type="submit" class="btn btn-primary">Entrar</button>
                             </div>
                         </form>
-                        <%  String error = request.getParameter("error");
+                        <%  
+                            String error = request.getParameter("error");
                             String registrado = request.getParameter("registrado");
                             
-                           if (error != null) { %>
+                           if (error != null) { 
+                        %>
                                 <div class="alert alert-danger mt-3 text-center" role="alert">
                                     Usuario o contraseña incorrectos.
                                 </div>
