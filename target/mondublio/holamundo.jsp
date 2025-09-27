@@ -67,8 +67,8 @@
                                 </div>
                                 <div>
                                     <% for (int i = 1; i <= 10; i++) { %>
-                                        <span class="badge bg-danger mb-1">El valor de i es ... <%=i%></span><br>
-                                    <% }%>
+                                        <span class="badge bg-danger mb-1">El valor de i es ... <%= i%></span><br>
+                                    <% } %>
                                 </div>
                             </div>
                             <!-- ejercicio 6 variables e if -->
@@ -79,11 +79,10 @@
                                 <div>
                                     <% for (int i = 1; i <= 10; i++) {
                                            if (i < 5) { %>                                    
-                                            <span class="badge bg-primary mb-1">El valor de i es ... <%=i%></span><br>
+                                            <span class="badge bg-primary mb-1">El valor de i es ... <%= i%></span><br>
                                         <% } else { %>  
-                                            <span class="badge bg-dark mb-1">******** El valor de i es ... <%=i%></span><br>
-                                        <% }
-                                       }%>
+                                            <span class="badge bg-dark mb-1">******** El valor de i es ... <%= i%></span><br>
+                                        <% }} %>
                                 </div>
                             </div>
                             <!-- ejercicio 7 incluir expresión -->
@@ -91,14 +90,14 @@
                                 <div class="alert alert-primary">
                                     <strong>Ejercicio 7</strong>
                                 </div>
-                                <span class="badge bg-success mb-1">Hola <%=valor%></span>
+                                <span class="badge bg-success mb-1">Hola <%= valor%></span>
                             </div>
                             <!-- ejercicio 8 incluir ficheros -->
                             <div class="mb-3">
                                 <div class="alert alert-primary">
                                     <strong>Ejercicio 8: Inclusión estática</strong>
                                 </div>
-                                <%@include file="incluir_estatica.jsp" %>
+                                <%@ include file="incluir_estatica.jsp" %>
                             </div>
                             <div class="mb-3">
                                 <div class="alert alert-primary">
@@ -106,7 +105,7 @@
                                 </div>
                                 <% String command = "hola"; %>
                                 <jsp:include page="incluir_dinamica.jsp" flush="true">                      
-                                    <jsp:param name="p1" value="<%=command%>" />                
+                                    <jsp:param name="p1" value="<%= command%>" />                
                                     <jsp:param name="p2" value="Rafa" /> 
                                 </jsp:include>
                             </div>

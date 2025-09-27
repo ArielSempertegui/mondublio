@@ -13,10 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/database")
-public class DatabaseServlet extends HttpServlet{
+public class DataBaseServlet extends HttpServlet{
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         // recogida de parametros
         String username = request.getParameter("username");

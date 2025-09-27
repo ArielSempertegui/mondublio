@@ -82,8 +82,7 @@
                                             <span class="badge bg-primary mb-1">El valor de i es ... <%= i%></span><br>
                                         <% } else { %>  
                                             <span class="badge bg-dark mb-1">******** El valor de i es ... <%= i%></span><br>
-                                        <% }
-                                       } %>
+                                        <% }} %>
                                 </div>
                             </div>
                             <!-- ejercicio 7 incluir expresión -->

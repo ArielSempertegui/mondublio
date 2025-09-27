@@ -19,7 +19,7 @@
                                 // Generación de números aleatorios
                                 int max = 10;
                                 int min = 1;
-                                Random rand = new Random();
+                                Random rand = new java.util.Random();
                                 int randomNum = rand.nextInt((max - min) + 1) + min;
                             %>
                             <div class="alert alert-success">

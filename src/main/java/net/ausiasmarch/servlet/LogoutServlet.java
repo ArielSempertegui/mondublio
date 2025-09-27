@@ -1,6 +1,7 @@
 package net.ausiasmarch.servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +18,6 @@ public class LogoutServlet extends HttpServlet {
         if (session != null) {
             session.invalidate();
         }
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("loginBD.jsp"); // Podemos cambiar por login.jsp
     }
 }

@@ -45,9 +45,7 @@
                             for (String item : lista) {
                         %>
                             <li class="list-group-item"><%= item %></li>
-                        <% 
-                            } 
-                        %>
+                        <% } %>
                         </ul>
                         <h3 class="mt-4">Herramienta de debug temporal:</h3>
                         <div class="text-start">

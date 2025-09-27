@@ -49,7 +49,8 @@
                         </ul>
                         <h3 class="mt-4">Herramienta de debug temporal:</h3>
                         <div class="text-start">
-                        <% java.util.Enumeration<String> names = request.getAttributeNames();
+                        <% 
+                            java.util.Enumeration<String> names = request.getAttributeNames();
                             out.println("<h4>Request attributes:</h4> <ul class='list-group'>");
                             while (names.hasMoreElements()) {
                                 String n = names.nextElement();

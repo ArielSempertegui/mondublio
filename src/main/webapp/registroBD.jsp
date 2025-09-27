@@ -15,10 +15,14 @@
                 <div class="card shadow">
                     <div class="card-body">
                         <h2 class="card-title text-center mb-4">Registro de usuario</h2>
-                        <form method="post" action="RegisterServlet">
+                        <form method="post" action="RegisterDatabase"> <!-- Podemos cambiar a "database" servlet-->
                             <div class="mb-3">
                                 <label for="username" class="form-label">Usuario</label>
                                 <input type="text" class="form-control" id="username" name="username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Contraseña</label>
@@ -32,16 +36,24 @@
                                 <button type="submit" class="btn btn-primary">Registrar</button>
                             </div>
                         </form>
-                        <c:if test="${param.errorRegistro == '1'}">
-                                <div class="alert alert-danger mt-3 text-center" role="alert">
-                                    Usuario ya registrado.
+
+                        <c:choose>
+                            <c:when test="${param.errorRegistro == '1'}">
+                                    <div class="alert alert-danger mt-3 text-center" role="alert">
+                                        Usuario ya registrado.
+                                    </div>
+                            </c:when>
+                            <c:when test="${param.errorRegistro == '2'}">
+                                    <div class="alert alert-danger mt-3 text-center" role="alert">
+                                        Ese correo electrónico ya se encuentra en uso.
+                                    </div>
+                            </c:when>
+                            <c:when test="${param.errorRegistro == '3'}">
+                                 <div class="alert alert-danger mt-3 text-center" role="alert">
+                                        Las contraseñas no coinciden.
                                 </div>
-                        </c:if>
-                        <c:if test="${param.errorRegistro == '2'}">
-                                <div class="alert alert-danger mt-3 text-center" role="alert">
-                                    Las contraseñas no coinciden.
-                                </div>
-                        </c:if>
+                            </c:when>
+                        </c:choose>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,5 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,24 +24,24 @@
                                 <label for="password" class="form-label">Contraseña</label>
                                 <input type="password" class="form-control" id="password" name="password" required>
                             </div>
-                                <div class="mb-3">
-                                <label for="password" class="form-label">Repetir Contraseña</label>
-                                <input type="password" class="form-control" id="password" name="passwordRepeat" required>
+                            <div class="mb-3">
+                                <label for="passwordRepeat" class="form-label">Repetir Contraseña</label>
+                                <input type="password" class="form-control" id="passwordRepeat" name="passwordRepeat" required>
                             </div>
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-primary">Registrar</button>
                             </div>
                         </form>
-                            <%  String error = request.getParameter("error") != null ? request.getParameter("error") : "";
-                                if (error.equals("1")) { %>
-                                    <div class="alert alert-danger mt-3 text-center" role="alert">
-                                        Usuario ya registrado.
-                                    </div>
-                            <% } else if (error.equals("2")) {%>
-                                    <div class="alert alert-danger mt-3 text-center" role="alert">
-                                        Las contraseñas no coinciden.
-                                    </div>
-                            <% } %>
+                        <c:if test="${param.errorRegistro == '1'}">
+                                <div class="alert alert-danger mt-3 text-center" role="alert">
+                                    Usuario ya registrado.
+                                </div>
+                        </c:if>
+                        <c:if test="${param.errorRegistro == '2'}">
+                                <div class="alert alert-danger mt-3 text-center" role="alert">
+                                    Las contraseñas no coinciden.
+                                </div>
+                        </c:if>
                     </div>
                 </div>
             </div>

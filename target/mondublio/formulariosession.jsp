@@ -27,7 +27,6 @@
                                     <button type="submit" class="btn btn-primary">Enviar</button>
                                 </div>
                             </form>
-
                             <!-- Mostrar los parámetros de sesión debajo del formulario -->
                             <%
                                 Integer supsession = (Integer) request.getSession().getAttribute("superior");
@@ -39,9 +38,7 @@
                                     Límite superior: <%= supsession %><br>
                                     Límite inferior: <%= infsession %>
                                 </div>
-                            <%
-                                }
-                            %>
+                            <% } %>
                         </div>
                     </div>
                 </div>

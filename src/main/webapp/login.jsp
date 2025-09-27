@@ -1,4 +1,5 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,21 +28,16 @@
                                 <button type="submit" class="btn btn-primary">Entrar</button>
                             </div>
                         </form>
-                        <%  
-                            String error = request.getParameter("error");
-                            String registrado = request.getParameter("registrado");
-                            
-                           if (error != null) { 
-                        %>
+                        <c:if test="${param.errorLogin == '1'}">
                                 <div class="alert alert-danger mt-3 text-center" role="alert">
                                     Usuario o contraseña incorrectos.
                                 </div>
-                        <% } else if (registrado != null) { %>
+                        </c:if>
+                        <c:if test="${param.registrado == '1'}">
                                 <div class="alert alert-success mt-3 text-center" role="alert">
                                     Usuario registrado correctamente.
                                 </div>
-                        <% } %>
-
+                        </c:if>
                         <div class="text-center">
                             <a href="register.jsp">No tienes cuenta? Create una haciendo click aquí</a>
                         </div>

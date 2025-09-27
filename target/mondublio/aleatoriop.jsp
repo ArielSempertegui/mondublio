@@ -4,10 +4,8 @@
     int max = 0;
     int min = 0;
     try{
-
         max = Integer.parseInt(request.getParameter("superior"));
         min = Integer.parseInt(request.getParameter("inferior"));
-
     }catch(Exception e){
         response.sendRedirect("formulario.html");
         return;
@@ -45,9 +43,7 @@
                                     <h2 class="mb-0">El número generado es el... <strong><%= randomNum %></strong></h2>
                                     <!-- redirect to formulario.jsp-->                                    
                                 </div>
-                            <%
-                                }
-                            %>
+                            <% } %>
                             <a href="formulario.html" class="btn btn-outline-primary mt-3">Volver al formulario</a>
                             <a href="index.jsp" class="btn btn-outline-primary mt-3">Volver</a>
                         </div>

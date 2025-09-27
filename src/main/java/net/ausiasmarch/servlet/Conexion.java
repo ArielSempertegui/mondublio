@@ -26,8 +26,8 @@ public class Conexion extends HttpServlet {
         String nombre = "Rafa";
         request.setAttribute("nombre", nombre);
         //redirigir a la jsp
-        request.getRequestDispatcher("conexion.jsp").forward(request, response); // le pasamos el request y el response, porque sino no se acordará (nivel scope request)
-        //response.sendRedirect("conexion.jsp");    a menos que creemos una session (nivel scope session) para que se acuerde y ya no hace falta pasarle el request, responde
+        request.getRequestDispatcher("conexion.jsp").forward(request, response); // Le pasamos el request y el response, porque sino no se acordará (nivel scope request)
+        //response.sendRedirect("conexion.jsp");  <--- A menos que creemos una session (nivel scope session) para que se acuerde y ya no hace falta pasarle el request, responde
         /*
          * Diferencias:
          * Nivel Scope Request
