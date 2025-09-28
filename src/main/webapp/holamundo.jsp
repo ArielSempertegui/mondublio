@@ -97,7 +97,7 @@
                                 <div class="alert alert-primary">
                                     <strong>Ejercicio 8: Inclusión estática</strong>
                                 </div>
-                                <%@ include file="incluir_estatica.jsp" %>
+                                <%@ include file="incluir_estatica.html" %>
                             </div>
                             <div class="mb-3">
                                 <div class="alert alert-primary">
